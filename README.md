@@ -46,7 +46,7 @@ You can check which version of Python is currently in use with the command `wher
 Once you are using the right version of Python, run `python -m pip install paho-mqtt` to install the MQTT libraries.
 
 # Running
-- Open the ERA XRShark Unity project.
+- Open the ERA XRShark Unity project. Make sure XRScene is the open scene in the Hierarchy tab.
 - Start CARLA. Start the two scripts. (I usually do this in three separate command windows, because you have to ctrl-c the two scripts to exit.)
 - Push the play button in the XRShark project.
 
