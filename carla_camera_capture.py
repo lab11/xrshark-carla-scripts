@@ -8,9 +8,9 @@ import json
 import base64
 
 CARLA_IMAGES_OUT_TOPIC = "xrshark/background/image" # for sending images
-MQTT_QOS = 1
+MQTT_QOS = 0
 
-MAX_FRAMES_PER_SECOND = 10
+MAX_FRAMES_PER_SECOND = 8
 
 # Captures
 class CameraCaptor:
