@@ -7,7 +7,7 @@ import json
 
 CARLA_LOCATION_OUT_TOPIC = "xrshark/camera/set" # for sending spectator coords
 CARLA_LOCATION_IN_TOPIC = "xrshark/camera/get" # for receiving spectator coords
-MQTT_QOS = 1
+MQTT_QOS = 0
 
 class CARLAViewSynchronizer:
     """Sends and receives CARLA spectator locations via MQTT"""
@@ -87,7 +87,7 @@ class CARLAViewSynchronizer:
     def on_mqtt_connect(self, client, userdata, flags, rc):
         if rc == 0:
             print("Connected to MQTT broker")
-            self.mqtt_client.subscribe(CARLA_LOCATION_IN_TOPIC)
+            self.mqtt_client.subscribe(CARLA_LOCATION_IN_TOPIC, MQTT_QOS)
         else:
             print("Failed to connect (return code {})".format(rc))
 
@@ -108,7 +108,8 @@ class CARLAViewSynchronizer:
 def main():
     synchronizer = CARLAViewSynchronizer()
     try:
-        synchronizer.send_coords()
+        #synchronizer.send_coords()
+        synchronizer.mqtt_client.loop_forever()
     except KeyboardInterrupt as e:
         synchronizer.disconnect()
 
