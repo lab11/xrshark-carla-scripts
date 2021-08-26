@@ -19,7 +19,7 @@ CARLA_PORT = 2000
 CONNECTION = None
 SOCK = None
 
-FPS = 40
+FPS = 30
 LAST_FRAME_TIME = time()
 
 IMAGE_QUEUE = queue.Queue()
@@ -32,10 +32,10 @@ def init_carla_camera():
     camera_blueprint = world.get_blueprint_library().find("sensor.camera.rgb")
     # camera_blueprint.set_attribute('image_size_x', '1920')
     # camera_blueprint.set_attribute('image_size_y', '1080')
-    camera_blueprint.set_attribute('image_size_x', '640')
-    camera_blueprint.set_attribute('image_size_y', '480')
-    # camera_blueprint.set_attribute('image_size_x', '800')
-    # camera_blueprint.set_attribute('image_size_y', '600')
+    # camera_blueprint.set_attribute('image_size_x', '640')
+    # camera_blueprint.set_attribute('image_size_y', '480')
+    camera_blueprint.set_attribute('image_size_x', '800')
+    camera_blueprint.set_attribute('image_size_y', '600')
     camera_offset = carla.Transform(carla.Location(), carla.Rotation())
     camera = world.spawn_actor(camera_blueprint, camera_offset, attach_to=world.get_spectator())
     camera.listen((lambda image: enqueue_image(image)))
