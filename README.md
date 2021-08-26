@@ -13,8 +13,8 @@ You will need the following programs:
 - Unity: Version 2019.4.5f1 required
 - Unity project: XRShark ERA Network Viz. Currently you must be added as a team member to the Unity project and download it through Unity collaboration services.
 - Python scripts (in this repo):
-  - carla_xrshark_sync.py: Python script for synchronizing the camera positions.
-  - carla_camera_capture.py: Python script for sending the current CARLA camera image to XRShark
+  - carla_camera_position_sync_tcp.py: Python script for synchronizing the camera positions.
+  - carla_background_image_capture_tcp.py: Python script for sending the current CARLA camera image to XRShark
 
 # Python Script Setup
 To run the scripts, you will need to make sure 1) that the CARLA Python egg is on your system PATH, 2) that you are using the version of Python that corresponds to the egg version, and 3) you have all dependencies installed.
